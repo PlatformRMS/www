@@ -1,0 +1,42 @@
+platform:
+    path:     /page
+    defaults: { _controller: PlatformBundle:Advert:index }
+
+oc_platform_home:
+    path: /{page}
+    defaults: { _controller: PlatformBundle:Advert:index, page: 1 }
+    requirements:
+        page: \d*
+
+oc_platform_view:
+    path:     /advert/{id}
+    defaults: { _controller: PlatformBundle:Advert:view }
+    requirements:
+        id: \d+
+
+oc_platform_viewSlug:
+    path:     /advert/{year}/{slug}.{_format}
+    defaults: { _controller: PlatformBundle:Advert:viewSlug, format: php }
+    requirements:
+        year: \d{4}
+        _format: html|xml|php
+
+oc_platform_add:
+    path:     /add
+    defaults: { _controller: PlatformBundle:Advert:add }
+
+oc_platform_edit:
+    path:     /edit/{id}
+    defaults: { _controller: PlatformBundle:Advert:edit }
+    requirements:
+        id: \d+
+
+oc_platform_delete:
+    path:     /delete/{id}
+    defaults: { _controller: platformBundle:Advert:delete }
+    requirements:
+        id: \d+
+
+oc_plateform_menu:
+    path:     /menu
+    defaults: { _controller: PlatformBundle:Advert:menu }
